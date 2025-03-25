@@ -1,0 +1,150 @@
+body {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #8000ff);
+    -webkit-background-clip: text;/*para o gradiente ficar no texto e não no fundo*/
+    color: transparent;
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    padding: 10px;
+}
+
+.caixa {
+    background-color: #ffffff;
+    height: 150px;
+    width: 150px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 35px;
+    position: relative;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.caixa:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+}
+
+.caixa::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #8000ff);
+    z-index: -1;
+    filter: blur(10px);
+    transition: filter 0.3s ease;
+}
+
+.caixa:hover::before {
+    filter: blur(15px);
+}
+
+.caixa img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+}
+
+.caixa a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.caixa:hover a {
+    color: #000000;
+}
+
+/* Media Queries para responsividade */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 40px; /*Tamanho para telas pequenas */
+    }
+
+    .container {
+        justify-content: center;
+        gap: 20px;
+        padding: 5px;
+    }
+
+    .caixa {
+        width: 120px;
+        height: 120px;
+        padding: 20px;
+    }
+
+    .caixa img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .caixa a {
+        font-size: 12px;
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 30px; 
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 10px;
+    }
+
+    .caixa {
+        width: 100px; 
+        height: 100px;
+        padding: 15px;
+    }
+
+    .caixa img {
+        width: 60px; 
+        height: 60px;
+    }
+
+    .caixa a {
+        font-size: 10px;
+    }
+}
+}
